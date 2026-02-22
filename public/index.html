@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Mechanic</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔧 AI Mechanic Diagnosis Tool</h1>
+
+  <input id="vehicle" placeholder="Vehicle (e.g. 2018 Ford F-150 5.0L)" />
+  <textarea id="symptoms" placeholder="Describe symptoms..." rows="4"></textarea>
+  <button onclick="diagnose()">Diagnose</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    async function diagnose() {
+      const vehicle = document.getElementById("vehicle").value;
+      const symptoms = document.getElementById("symptoms").value;
+
+      const response = await fetch("http://localhost:5000/diagnose", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ vehicle, symptoms })
+      });
+
+      const data = await response.json();
+
+      let html = "<h2>Diagnosis Result</h2>";
+
+      html += "<strong>Severity:</strong> " + data.severity + "<br>";
+      html += "<strong>Safe to Drive:</strong> " + data.safe_to_drive + "<br>";
+
+      html += "<h3>Likely Causes:</h3><ul>";
+      data.likely_causes.forEach(cause => {
+        html += "<li>" + cause + "</li>";
+      });
+      html += "</ul>";
+
+      html += "<h3>Recommended Actions:</h3><ul>";
+      data.recommended_actions.forEach(action => {
+        html += "<li>" + action + "</li>";
+      });
+      html += "</ul>";
+
+      document.getElementById("result").innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>
