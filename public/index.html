@@ -1,78 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AI Mechanic</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mechanic AI</title>
+
   <style>
     body {
-      font-family: Arial;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 40px;
     }
 
-    input, textarea, button {
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input, textarea {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
 
-    .result {
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .loading {
+      text-align: center;
       margin-top: 20px;
-      padding: 15px;
-      border: 1px solid #ddd;
-      background: #f9f9f9;
+      display: none;
     }
 
-    h2 {
+    .results {
       margin-top: 30px;
     }
+
+    .card {
+      background: #f9fafc;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #007bff;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-right: 8px;
+      color: white;
+    }
+
+    .severity {
+      background: #ff9800;
+    }
+
+    .safe-no {
+      background: #e53935;
+    }
+
+    .safe-yes {
+      background: #43a047;
+    }
+
+    .source-db {
+      background: #2e7d32;
+    }
+
+    .source-ai {
+      background: #6a1b9a;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
   </style>
 </head>
 <body>
 
-  <h1>🔧 AI Mechanic Diagnosis Tool</h1>
+  <div class="container">
+    <h1>🚗 Mechanic AI</h1>
 
-  <input id="vehicle" placeholder="Vehicle (e.g. 2018 Ford F-150 5.0L)" />
-  <textarea id="symptoms" placeholder="Describe symptoms..." rows="4"></textarea>
-  <button onclick="diagnose()">Diagnose</button>
+    <input type="text" id="vehicle" placeholder="Vehicle (e.g. 2015 Honda Civic)" />
+    <textarea id="symptoms" rows="4" placeholder="Describe symptoms..."></textarea>
 
-  <div class="result" id="result"></div>
+    <button onclick="diagnose()">Diagnose</button>
 
-  <script>
-    async function diagnose() {
-      const vehicle = document.getElementById("vehicle").value;
-      const symptoms = document.getElementById("symptoms").value;
+    <div class="loading" id="loading">
+      🔍 Analyzing vehicle...
+    </div>
 
-      const response = await fetch("/diagnose", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ vehicle, symptoms })
-      });
+    <div class="results" id="results"></div>
+  </div>
 
-      const data = await response.json();
+<script>
+async function diagnose() {
+  const vehicle = document.getElementById("vehicle").value;
+  const symptoms = document.getElementById("symptoms").value;
 
-      let html = "<h2>Diagnosis Result</h2>";
+  const loading = document.getElementById("loading");
+  const resultsDiv = document.getElementById("results");
 
-      html += "<strong>Severity:</strong> " + data.severity + "<br>";
-      html += "<strong>Safe to Drive:</strong> " + data.safe_to_drive + "<br>";
+  loading.style.display = "block";
+  resultsDiv.innerHTML = "";
 
-      html += "<h3>Likely Causes:</h3><ul>";
-      data.likely_causes.forEach(cause => {
-        html += "<li>" + cause + "</li>";
-      });
-      html += "</ul>";
+  try {
+    const response = await fetch("http://localhost:5000/diagnose", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ vehicle, symptoms })
+    });
 
-      html += "<h3>Recommended Actions:</h3><ul>";
-      data.recommended_actions.forEach(action => {
-        html += "<li>" + action + "</li>";
-      });
-      html += "</ul>";
+    const data = await response.json();
 
-      document.getElementById("result").innerHTML = html;
-    }
-  </script>
+    loading.style.display = "none";
+
+    renderResults(data);
+
+  } catch (error) {
+    loading.style.display = "none";
+    resultsDiv.innerHTML = "<p>Error contacting server.</p>";
+  }
+}
+
+function renderResults(data) {
+  const resultsDiv = document.getElementById("results");
+
+  let causesHTML = "";
+  data.likely_causes.forEach(cause => {
+    causesHTML += `<li>${cause}</li>`;
+  });
+
+  let actionsHTML = "";
+  data.recommended_actions.forEach(action => {
+    actionsHTML += `<li>${action}</li>`;
+  });
+
+  const safeClass = data.safe_to_drive === "No" ? "safe-no" : "safe-yes";
+
+  let estimateHTML = "";
+
+  if (data.repair_estimate) {
+    const sourceClass =
+      data.repair_estimate.estimate_source === "database"
+        ? "source-db"
+        : "source-ai";
+
+    const sourceLabel =
+      data.repair_estimate.estimate_source === "database"
+        ? "Database Verified Estimate"
+        : "AI Estimated Cost";
+
+    estimateHTML = `
+      <div class="card">
+        <h3>💰 Repair Estimate</h3>
+        <span class="badge ${sourceClass}">${sourceLabel}</span>
+        <p><strong>Parts:</strong> ${data.repair_estimate.parts_range || "-"}</p>
+        <p><strong>Labor Hours:</strong> ${data.repair_estimate.labor_hours_range || "-"}</p>
+        <p><strong>Total Estimate:</strong> ${data.repair_estimate.estimated_total_range || "-"}</p>
+      </div>
+    `;
+  }
+
+  resultsDiv.innerHTML = `
+    <div class="card">
+      <h3>🔎 Likely Causes</h3>
+      <ul>${causesHTML}</ul>
+    </div>
+
+    <div class="card">
+      <h3>🛠 Recommended Actions</h3>
+      <ul>${actionsHTML}</ul>
+    </div>
+
+    <div class="card">
+      <h3>⚠ Status</h3>
+      <span class="badge severity">${data.severity}</span>
+      <span class="badge ${safeClass}">Safe to Drive: ${data.safe_to_drive}</span>
+    </div>
+
+    ${estimateHTML}
+  `;
+}
+</script>
 
 </body>
 </html>

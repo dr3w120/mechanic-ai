@@ -1,0 +1,460 @@
+{
+  "catalytic_converter": {
+    "display_name": "Catalytic Converter Replacement",
+    "keywords": ["catalytic converter", "p0420", "catalyst efficiency"],
+    "category": "emissions",
+    "severity": "medium",
+    "parts_range": [600, 2000],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "oxygen_sensor": {
+    "display_name": "Oxygen Sensor Replacement",
+    "keywords": ["oxygen sensor", "o2 sensor", "p0130", "p0150"],
+    "category": "emissions",
+    "severity": "low",
+    "parts_range": [80, 250],
+    "labor_hours_range": [0.5, 1.5]
+  },
+
+  "mass_airflow_sensor": {
+    "display_name": "Mass Air Flow Sensor Replacement",
+    "keywords": ["maf sensor", "mass airflow", "p0100", "p0101"],
+    "category": "fuel",
+    "severity": "medium",
+    "parts_range": [120, 400],
+    "labor_hours_range": [0.5, 1.5]
+  },
+
+  "fuel_pump": {
+    "display_name": "Fuel Pump Replacement",
+    "keywords": ["fuel pump", "no fuel pressure"],
+    "category": "fuel",
+    "severity": "high",
+    "parts_range": [150, 400],
+    "labor_hours_range": [2.0, 4.0]
+  },
+
+  "fuel_injector": {
+    "display_name": "Fuel Injector Replacement",
+    "keywords": ["fuel injector", "misfire", "p0300"],
+    "category": "fuel",
+    "severity": "medium",
+    "parts_range": [100, 350],
+    "labor_hours_range": [1.0, 3.0]
+  },
+
+  "spark_plugs": {
+    "display_name": "Spark Plug Replacement",
+    "keywords": ["spark plugs", "misfire", "rough idle"],
+    "category": "ignition",
+    "severity": "low",
+    "parts_range": [50, 200],
+    "labor_hours_range": [1.0, 2.5]
+  },
+
+  "ignition_coils": {
+    "display_name": "Ignition Coil Replacement",
+    "keywords": ["ignition coil", "coil pack", "p0350"],
+    "category": "ignition",
+    "severity": "medium",
+    "parts_range": [100, 400],
+    "labor_hours_range": [1.0, 2.5]
+  },
+
+  "alternator": {
+    "display_name": "Alternator Replacement",
+    "keywords": ["alternator", "battery not charging", "p0620"],
+    "category": "electrical",
+    "severity": "medium",
+    "parts_range": [200, 600],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "starter_motor": {
+    "display_name": "Starter Motor Replacement",
+    "keywords": ["starter", "clicking noise", "no crank"],
+    "category": "electrical",
+    "severity": "high",
+    "parts_range": [150, 500],
+    "labor_hours_range": [1.0, 3.0]
+  },
+
+  "battery": {
+    "display_name": "Battery Replacement",
+    "keywords": ["dead battery", "weak battery"],
+    "category": "electrical",
+    "severity": "low",
+    "parts_range": [100, 300],
+    "labor_hours_range": [0.3, 1.0]
+  },
+
+  "water_pump": {
+    "display_name": "Water Pump Replacement",
+    "keywords": ["water pump", "coolant leak", "overheating"],
+    "category": "cooling",
+    "severity": "high",
+    "parts_range": [150, 450],
+    "labor_hours_range": [2.0, 4.5]
+  },
+
+  "radiator": {
+    "display_name": "Radiator Replacement",
+    "keywords": ["radiator leak", "coolant loss"],
+    "category": "cooling",
+    "severity": "high",
+    "parts_range": [200, 600],
+    "labor_hours_range": [2.0, 4.0]
+  },
+
+  "thermostat": {
+    "display_name": "Thermostat Replacement",
+    "keywords": ["thermostat", "engine overheating"],
+    "category": "cooling",
+    "severity": "medium",
+    "parts_range": [50, 200],
+    "labor_hours_range": [1.0, 2.0]
+  },
+
+  "ac_compressor": {
+    "display_name": "AC Compressor Replacement",
+    "keywords": ["ac not cold", "ac compressor"],
+    "category": "hvac",
+    "severity": "medium",
+    "parts_range": [400, 1200],
+    "labor_hours_range": [2.0, 5.0]
+  },
+
+  "brake_pads_rotors": {
+    "display_name": "Brake Pads & Rotors Replacement",
+    "keywords": ["brake noise", "grinding brakes"],
+    "category": "braking",
+    "severity": "high",
+    "parts_range": [250, 800],
+    "labor_hours_range": [1.5, 3.5]
+  },
+
+  "wheel_bearing": {
+    "display_name": "Wheel Bearing Replacement",
+    "keywords": ["wheel bearing noise", "humming noise"],
+    "category": "suspension",
+    "severity": "high",
+    "parts_range": [150, 400],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "control_arm": {
+    "display_name": "Control Arm Replacement",
+    "keywords": ["control arm", "clunking noise"],
+    "category": "suspension",
+    "severity": "medium",
+    "parts_range": [200, 600],
+    "labor_hours_range": [1.5, 3.5]
+  },
+
+  "struts_shocks": {
+    "display_name": "Struts / Shocks Replacement",
+    "keywords": ["bouncy ride", "bad struts"],
+    "category": "suspension",
+    "severity": "medium",
+    "parts_range": [300, 1000],
+    "labor_hours_range": [2.0, 4.0]
+  },
+
+  "power_steering_pump": {
+    "display_name": "Power Steering Pump Replacement",
+    "keywords": ["steering hard", "power steering leak"],
+    "category": "steering",
+    "severity": "medium",
+    "parts_range": [200, 600],
+    "labor_hours_range": [2.0, 4.0]
+  },
+
+  "transmission_rebuild": {
+    "display_name": "Transmission Rebuild",
+    "keywords": ["transmission slipping", "hard shifting"],
+    "category": "drivetrain",
+    "severity": "critical",
+    "parts_range": [1500, 4000],
+    "labor_hours_range": [8.0, 15.0]
+  },
+
+  "clutch_replacement": {
+    "display_name": "Clutch Replacement",
+    "keywords": ["clutch slipping", "manual transmission issue"],
+    "category": "drivetrain",
+    "severity": "high",
+    "parts_range": [400, 1200],
+    "labor_hours_range": [5.0, 10.0]
+  },
+
+  "head_gasket": {
+    "display_name": "Head Gasket Replacement",
+    "keywords": ["white smoke", "coolant in oil"],
+    "category": "engine",
+    "severity": "critical",
+    "parts_range": [800, 2500],
+    "labor_hours_range": [10.0, 20.0]
+  },
+
+  "timing_belt": {
+    "display_name": "Timing Belt Replacement",
+    "keywords": ["timing belt", "engine misfire"],
+    "category": "engine",
+    "severity": "high",
+    "parts_range": [300, 900],
+    "labor_hours_range": [3.0, 6.0]
+  },
+
+  "turbocharger": {
+    "display_name": "Turbocharger Replacement",
+    "keywords": ["turbo failure", "boost pressure low"],
+    "category": "engine",
+    "severity": "high",
+    "parts_range": [800, 2500],
+    "labor_hours_range": [4.0, 8.0]
+  },
+
+  "evap_purge_valve": {
+    "display_name": "EVAP Purge Valve Replacement",
+    "keywords": ["evap leak", "p0440", "p0455"],
+    "category": "emissions",
+    "severity": "low",
+    "parts_range": [50, 200],
+    "labor_hours_range": [0.5, 1.5]
+  },
+
+  "crankshaft_sensor": {
+    "display_name": "Crankshaft Position Sensor Replacement",
+    "keywords": ["p0335", "engine stalls"],
+    "category": "engine",
+    "severity": "high",
+    "parts_range": [80, 250],
+    "labor_hours_range": [1.0, 2.0]
+  },
+
+  "camshaft_sensor": {
+    "display_name": "Camshaft Position Sensor Replacement",
+    "keywords": ["p0340", "camshaft sensor"],
+    "category": "engine",
+    "severity": "medium",
+    "parts_range": [80, 250],
+    "labor_hours_range": [1.0, 2.0]
+  },
+
+  "abs_module": {
+    "display_name": "ABS Control Module Replacement",
+    "keywords": ["abs light on", "abs module failure"],
+    "category": "braking",
+    "severity": "high",
+    "parts_range": [400, 1200],
+    "labor_hours_range": [1.5, 3.5]
+  },
+
+  "steering_rack": {
+    "display_name": "Steering Rack Replacement",
+    "keywords": ["steering rack leak", "loose steering"],
+    "category": "steering",
+    "severity": "high",
+    "parts_range": [600, 1800],
+    "labor_hours_range": [3.0, 6.0]
+  },
+
+  "cv_axle": {
+    "display_name": "CV Axle Replacement",
+    "keywords": ["cv joint noise", "clicking when turning"],
+    "category": "drivetrain",
+    "severity": "high",
+    "parts_range": [150, 450],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "differential_rebuild": {
+    "display_name": "Differential Rebuild",
+    "keywords": ["differential noise", "rear end whining"],
+    "category": "drivetrain",
+    "severity": "critical",
+    "parts_range": [1000, 3000],
+    "labor_hours_range": [6.0, 12.0]
+  },
+
+  "hybrid_battery": {
+    "display_name": "Hybrid Battery Replacement",
+    "keywords": ["hybrid battery failure", "battery pack warning"],
+    "category": "electrical",
+    "severity": "critical",
+    "parts_range": [2000, 5000],
+    "labor_hours_range": [2.0, 5.0]
+  },
+
+  "engine_rebuild": {
+    "display_name": "Engine Rebuild",
+    "keywords": ["engine knocking", "engine failure"],
+    "category": "engine",
+    "severity": "critical",
+    "parts_range": [2000, 6000],
+    "labor_hours_range": [15.0, 30.0]
+  },
+
+  "fuel_rail": {
+    "display_name": "Fuel Rail Replacement",
+    "keywords": ["fuel rail leak", "fuel smell"],
+    "category": "fuel",
+    "severity": "high",
+    "parts_range": [200, 600],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "intake_manifold_gasket": {
+    "display_name": "Intake Manifold Gasket Replacement",
+    "keywords": ["vacuum leak", "rough idle"],
+    "category": "engine",
+    "severity": "medium",
+    "parts_range": [100, 400],
+    "labor_hours_range": [2.0, 5.0]
+  },
+
+  "throttle_body": {
+    "display_name": "Throttle Body Replacement",
+    "keywords": ["throttle body issue", "idle problems"],
+    "category": "engine",
+    "severity": "medium",
+    "parts_range": [200, 700],
+    "labor_hours_range": [1.0, 2.5]
+  },
+
+  "blend_door_actuator": {
+    "display_name": "Blend Door Actuator Replacement",
+    "keywords": ["no heat", "no ac airflow direction"],
+    "category": "hvac",
+    "severity": "low",
+    "parts_range": [100, 350],
+    "labor_hours_range": [1.5, 4.0]
+  },
+
+  "serpentine_belt": {
+    "display_name": "Serpentine Belt Replacement",
+    "keywords": ["belt squeal", "serpentine belt worn"],
+    "category": "engine",
+    "severity": "low",
+    "parts_range": [30, 120],
+    "labor_hours_range": [0.5, 1.5]
+  },
+
+  "idler_pulley": {
+    "display_name": "Idler Pulley Replacement",
+    "keywords": ["pulley noise", "squeaking pulley"],
+    "category": "engine",
+    "severity": "medium",
+    "parts_range": [50, 200],
+    "labor_hours_range": [0.5, 1.5]
+  },
+
+  "radiator_fan": {
+    "display_name": "Radiator Fan Replacement",
+    "keywords": ["cooling fan not working", "engine overheating idle"],
+    "category": "cooling",
+    "severity": "high",
+    "parts_range": [150, 500],
+    "labor_hours_range": [1.0, 3.0]
+  },
+
+  "heater_core": {
+    "display_name": "Heater Core Replacement",
+    "keywords": ["no cabin heat", "coolant smell inside"],
+    "category": "hvac",
+    "severity": "high",
+    "parts_range": [200, 700],
+    "labor_hours_range": [5.0, 10.0]
+  },
+
+  "ac_condenser": {
+    "display_name": "AC Condenser Replacement",
+    "keywords": ["ac leak", "no cold air"],
+    "category": "hvac",
+    "severity": "medium",
+    "parts_range": [200, 800],
+    "labor_hours_range": [2.0, 4.0]
+  },
+
+  "power_window_motor": {
+    "display_name": "Power Window Motor Replacement",
+    "keywords": ["window not working", "window stuck"],
+    "category": "electrical",
+    "severity": "low",
+    "parts_range": [100, 350],
+    "labor_hours_range": [1.0, 2.5]
+  },
+
+  "door_lock_actuator": {
+    "display_name": "Door Lock Actuator Replacement",
+    "keywords": ["door wont lock", "lock actuator noise"],
+    "category": "electrical",
+    "severity": "low",
+    "parts_range": [80, 250],
+    "labor_hours_range": [1.0, 2.5]
+  },
+
+  "abs_wheel_sensor": {
+    "display_name": "ABS Wheel Speed Sensor Replacement",
+    "keywords": ["abs sensor", "traction control light"],
+    "category": "braking",
+    "severity": "medium",
+    "parts_range": [80, 250],
+    "labor_hours_range": [0.8, 2.0]
+  },
+
+  "tie_rod": {
+    "display_name": "Tie Rod Replacement",
+    "keywords": ["loose steering", "uneven tire wear"],
+    "category": "steering",
+    "severity": "high",
+    "parts_range": [100, 300],
+    "labor_hours_range": [1.0, 2.5]
+  },
+
+  "ball_joint": {
+    "display_name": "Ball Joint Replacement",
+    "keywords": ["clunking front end", "suspension noise"],
+    "category": "suspension",
+    "severity": "high",
+    "parts_range": [150, 400],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "fuel_filter": {
+    "display_name": "Fuel Filter Replacement",
+    "keywords": ["fuel restriction", "engine hesitation"],
+    "category": "fuel",
+    "severity": "low",
+    "parts_range": [30, 120],
+    "labor_hours_range": [0.5, 1.5]
+  },
+
+  "transmission_fluid_service": {
+    "display_name": "Transmission Fluid Service",
+    "keywords": ["transmission fluid change", "maintenance"],
+    "category": "drivetrain",
+    "severity": "low",
+    "parts_range": [80, 250],
+    "labor_hours_range": [1.0, 2.0]
+  },
+
+  "engine_mount": {
+    "display_name": "Engine Mount Replacement",
+    "keywords": ["engine vibration", "motor mount broken"],
+    "category": "engine",
+    "severity": "medium",
+    "parts_range": [150, 500],
+    "labor_hours_range": [1.5, 3.0]
+  },
+
+  "timing_chain": {
+    "display_name": "Timing Chain Replacement",
+    "keywords": ["timing chain rattle", "engine noise startup"],
+    "category": "engine",
+    "severity": "high",
+    "parts_range": [600, 2000],
+    "labor_hours_range": [5.0, 12.0]
+  }
+}
